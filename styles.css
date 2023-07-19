@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+* {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    position: relative;
+    margin: 0;
+}
+
+body {
+    margin: 0;
+    margin-top: 70px;
+    background-color: #f5f5f5;
+}
+
+.logo {
+    float: left;
+    margin-left: 10%;
+}
+
+.logo i {
+        margin-left: 16px; /* Adjust the margin value to add desired spacing */
+    }
+.logo a {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    color: #1d1d1d;
+}
+
+.navbar {
+    background-color: #ffffff;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.links {
+    margin-right: 10%;
+    float: right;
+}
+
+.links a {
+    float: left;
+    text-align: center;
+    padding: 16px 24px;
+    display: block;
+    color: #1d1d1d;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.links a:hover {
+    background-color: #1d1d1d;
+    color: #ffffff;
+    border-radius: 20px;
+}
+
+.navbar .active {
+    font-weight: bold;
+}
+
+.logo a:hover {
+    color: #767474;
+}
+
+.normal-text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.footer {
+    display: flex;
+    background-color: #333333;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8px;
+    width: 100%;
+    margin: 0;
+}
+
+.footer-center-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-text {
+    text-align: center;
+    color: #ffffff;
+    margin: 16px;
+}
+
+.footer-button1 {
+    background-color: #1d1d1d;
+    border-radius: 10px;
+}
+
+.footer-button2 {
+    background-color: #1d1d1d;
+    border-radius: 10px;
+}
+
+.footer-button1,
+.footer-button2 {
+    width: 150px;
+    border-width: 2px;
+    border-color: #ffffff;
+    border-style: solid;
+    text-align: center;
+    padding: 8px 24px;
+}
+
+.footer-buttons-container {
+    display: flex;
+    margin-bottom: 16px;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-button1 {
+    color: #ffffff;
+}
+
+.footer-button2 {
+    color: #ffffff;
+}
+
+.footer-button1:hover {
+    color: #1d1d1d;
+    background-color: #ffffff;
+}
+
+.footer-button2:hover {
+    color: #1d1d1d;
+    background-color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .links a:not(:last-child) {
+        display: none;
+    }
+    .navbar a.menu {
+        float: left;
+        display: block;
+        font-size: 32px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    a.menu {
+        display: none;
+    }
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #cccccc;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px;
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.main-content {
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.body-title {
+    color: #1d1d1d;
+    font-size: 45px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.body-title-underline {
+    position: relative;
+    content: "";
+    border-bottom: 4px solid #1d1d1d;
+    width: 60%;
+    height: 1px;
+    margin: 20px auto 35px;
+    border-radius: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1d1d1d;
+}
