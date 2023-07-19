@@ -23,7 +23,7 @@ body {
 
 .logo i {
         margin-left: 16px; /* Adjust the margin value to add desired spacing */
-    }
+}
 .logo a {
     font-family: 'Roboto';
     font-style: normal;
@@ -78,78 +78,12 @@ body {
     color: #767474;
 }
 
-.normal-text {
+.link-text {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
-}
-
-.footer {
-    display: flex;
-    background-color: #333333;
-    justify-content: center;
-    flex-direction: column;
-    padding: 8px;
-    width: 100%;
-    margin: 0;
-}
-
-.footer-center-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.footer-text {
-    text-align: center;
-    color: #ffffff;
-    margin: 16px;
-}
-
-.footer-button1 {
-    background-color: #1d1d1d;
-    border-radius: 10px;
-}
-
-.footer-button2 {
-    background-color: #1d1d1d;
-    border-radius: 10px;
-}
-
-.footer-button1,
-.footer-button2 {
-    width: 150px;
-    border-width: 2px;
-    border-color: #ffffff;
-    border-style: solid;
-    text-align: center;
-    padding: 8px 24px;
-}
-
-.footer-buttons-container {
-    display: flex;
-    margin-bottom: 16px;
-    justify-content: center;
-    gap: 30px;
-}
-
-.footer-button1 {
-    color: #ffffff;
-}
-
-.footer-button2 {
-    color: #ffffff;
-}
-
-.footer-button1:hover {
-    color: #1d1d1d;
-    background-color: #ffffff;
-}
-
-.footer-button2:hover {
-    color: #1d1d1d;
-    background-color: #ffffff;
 }
 
 a {
@@ -227,31 +161,77 @@ a {
 }
 
 .main-content {
-    padding: 20px;
+    padding: 40px;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
 }
 
-.body-title {
+.title {
     color: #1d1d1d;
     font-size: 45px;
     font-weight: 600;
     text-align: center;
 }
 
-.body-title-underline {
+.title-underline {
     position: relative;
-    content: "";
     border-bottom: 4px solid #1d1d1d;
     width: 60%;
-    height: 1px;
-    margin: 20px auto 35px;
-    border-radius: 20px;
+    margin: auto;
+    margin-bottom: 30px;
 }
 
 p {
     font-size: 18px;
     line-height: 1.5;
     color: #1d1d1d;
+}
+
+.footer-container {
+    width: 80%;
+    margin: auto;
+}
+
+footer {
+    background-color: #1d1d1d;
+    color: #fff;
+    padding: 20px 0;
+}
+
+footer .col {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+    padding: 10px;
+}
+
+footer h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer p, footer a {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #aaa;
+}
+
+footer a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid #1d1d1d;
+    margin: 20px 0;
+}
+
+footer .row::after {
+    content: "";
+    display: table;
+    clear: both;
 }
