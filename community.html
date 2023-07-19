@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="authors" content="Vishnusai Ramesh, Edward Lai, Thomas Lai">
+    <title>ChessConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ed7e0b9ede.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Top Nav -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><h1>ChessConnect<i class="fas fa-chess"></i>
+                </h1></a>
+            </div>
+            
+
+            <div class="links link-text">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a class="menu" onclick="openNav()">&#9776;</a>
+            </div>
+        </div>
+        <!-- mobile nav -->
+        <div id="mobileNav" class="overlay">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mobileNav").style.width = "100%";
+            }
+            function closeNav() {
+                document.getElementById("mobileNav").style.width = "0%";
+            }
+        </script>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h2 class="title">Welcome to our Community Page</h2>
+        <div class="title-underline"></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu neque vel lacus finibus commodo. Curabitur eu nunc malesuada, semper ligula vitae, placerat ligula. Integer malesuada sagittis metus nec faucibus. Sed congue, turpis at laoreet malesuada, lorem lacus maximus sem, eu consequat justo tortor id felis. In eu massa augue. Vivamus ac malesuada nulla, in scelerisque urna. Curabitur blandit, tellus non sollicitudin malesuada, odio dolor aliquam ipsum, sit amet facilisis mi velit ut nisi. Ut vitae enim ligula.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col">
+                    <h5>About Us</h5>
+                    <p>ChessConnect is an innovative online platform crafted to elevate the chess journey, bring together passionate chess players, streamline virtual competitions, oversee tournaments, and cultivate a thriving chess community.</p>
+                </div>
+                <!-- Contact Section -->
+                <div class="col">
+                    <h5>Contact Us</h5>
+                    <p>1234 Main Street, Boston, 56789</p>
+                    <p>info@chessconnect.com</p>
+                    <p>(123) 456-7890</p>
+                </div>
+                <!-- Social Media Section -->
+                <div class="col">
+                    <h5>Follow Us</h5>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Instagram</a><br>
+                    <a href="#">Discord</a>
+                </div>
+            </div>
+            <!-- Copyright Section -->
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <p>&copy; 2023 ChessConnect. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
