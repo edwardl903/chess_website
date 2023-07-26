@@ -7,6 +7,30 @@
     <title>ChessConnect</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/ed7e0b9ede.js" crossorigin="anonymous"></script>
+    <style>
+        .table-container {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .table th {
+            background-color: #1d1d1d;
+            color: white;
+        }
+    </style>
 
 </head>
 
@@ -50,7 +74,8 @@
     <div class="main-content">
         <h2 class="title">Welcome to our Community Page</h2>
         <div class="title-underline"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu neque vel lacus finibus commodo. Curabitur eu nunc malesuada, semper ligula vitae, placerat ligula. Integer malesuada sagittis metus nec faucibus. Sed congue, turpis at laoreet malesuada, lorem lacus maximus sem, eu consequat justo tortor id felis. In eu massa augue. Vivamus ac malesuada nulla, in scelerisque urna. Curabitur blandit, tellus non sollicitudin malesuada, odio dolor aliquam ipsum, sit amet facilisis mi velit ut nisi. Ut vitae enim ligula.</p>
+        <div id="table-container"></div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -86,6 +111,45 @@
             </div>
         </div>
     </footer>
+    <script>
+        window.onload = function() {
+    fetch('http://localhost:4000/api/members')
+        .then(response => response.json())
+        .then(data => {
+            const tableContainer = document.getElementById('table-container');
+            let tableHTML = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            data.forEach(member => {
+                tableHTML += `
+                    <tr>
+                        <td>${member.name}</td>
+                        <td>${member.role}</td>
+                        <td>${member.year}</td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            tableContainer.innerHTML = tableHTML;
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+    </script>
 
 </body>
 </html>
