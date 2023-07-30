@@ -1,15 +1,16 @@
 // JavaScript code to handle roster and bracket generation
 document.addEventListener("DOMContentLoaded", () => {
-  const rosterIndicator = document.getElementById("roster-indicator");
-  const rosterList = document.getElementById("roster-list");
+  const tournamentsContainer = document.querySelector(".tournament-list");
+  const rosterIndicator = document.querySelector(".roster-indicator");
+  const rosterList = document.querySelector(".roster-list");
   const addParticipantForm = document.getElementById("add-participant-form");
-  const generateBracketsBtn = document.getElementById("generate-brackets-btn");
-  const nextRoundBtn = document.getElementById("next-round-btn");
-  const newTournamentBtn = document.getElementById("new-tournament-btn");
-  const bracketsContainer = document.getElementById("brackets");
-  const historyList = document.getElementById("history-list");
-  const winnerMessage = document.getElementById("winner-message");
-  const winnerName = document.getElementById("winner-name");
+  const generateBracketsBtn = document.querySelector(".generate-brackets-btn");
+  const nextRoundBtn = document.querySelector(".next-round-btn");
+  const newTournamentBtn = document.querySelector(".new-tournament-btn");
+  const bracketsContainer = document.querySelector(".brackets-container");
+  const historyList = document.querySelector(".history-list");
+  const winnerMessage = document.querySelector(".winner-message");
+  const winnerName = document.querySelector(".winner-name");
 
   let roster = [];
   let matches = [];
@@ -95,17 +96,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const participant1Elem = createParticipantElement(participant1, index, 0);
       const participant2Elem = createParticipantElement(participant2, index, 1);
 
-      const vsElem = createVsElement();
+      const winnerButtonContainer = document.createElement("div");
+      winnerButtonContainer.classList.add("winner-button-container");
+      winnerButtonContainer.appendChild(createWinnerButton(index, 0));
+      winnerButtonContainer.appendChild(createWinnerButton(index, 1));
 
       matchContainer.appendChild(participant1Elem);
-      matchContainer.appendChild(vsElem);
       matchContainer.appendChild(participant2Elem);
-
-      const winnerButton1 = createWinnerButton(index, 0);
-      const winnerButton2 = createWinnerButton(index, 1);
-
-      matchContainer.appendChild(winnerButton1);
-      matchContainer.appendChild(winnerButton2);
+      matchContainer.appendChild(winnerButtonContainer);
     });
   }
 
@@ -115,13 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
     participantElem.textContent = participant;
     participantElem.addEventListener("click", () => markWinner(matchIndex, participantIndex));
     return participantElem;
-  }
-
-  function createVsElement() {
-    const vsElem = document.createElement("div");
-    vsElem.classList.add("vs");
-    vsElem.textContent = "VS";
-    return vsElem;
   }
 
   function createWinnerButton(matchIndex, winnerIndex) {
@@ -188,7 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
         updateHistory(winners);
         roster = winners;
         rosterIndicator.textContent = `${roster.length}/16`;
-        generateBrackets();
+        matches = generateMatches(roster);
+        displayBrackets(matches);
         round++;
         nextRoundBtn.disabled = true;
         newTournamentBtn.disabled = true;
