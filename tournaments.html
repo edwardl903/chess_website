@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="authors" content="Vishnusai Ramesh, Edward Lai, Thomas Lai">
+    <title>ChessConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="tournaments/tournaments.css">
+    <script src="https://kit.fontawesome.com/ed7e0b9ede.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- Top Nav -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><h1>ChessConnect<i class="fas fa-chess"></i>
+                </h1></a>
+            </div>
+            
+
+            <div class="links link-text">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a class="menu" onclick="openNav()">&#9776;</a>
+            </div>
+        </div>
+        <!-- mobile nav -->
+        <div id="mobileNav" class="overlay">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mobileNav").style.width = "100%";
+            }
+            function closeNav() {
+                document.getElementById("mobileNav").style.width = "0%";
+            }
+        </script>
+    </header>
+
+    <h1>Tournament Brackets  </h1>
+    
+        <!-- Roster Section -->
+        <div class="container">
+            <h1 class="title">Chess Tournament</h1>
+            <div class="tournament">
+              <div class="tournament-info">
+                <div class="roster">
+                  <h2>Roster</h2>
+                  <p class="roster-indicator">0/16</p>
+                  <ul class="roster-list"></ul>
+                  <form id="add-participant-form" class="add-participant-form">
+                    <input type="text" id="participant-name" placeholder="Enter participant name">
+                    <button type="submit">Add</button>
+                  </form>
+                  <button class="generate-brackets-btn">Generate Brackets</button>
+                </div>
+                <div class="brackets-container">
+                  <h2>Brackets</h2>
+                </div>
+              </div>
+              <div class="round-history">
+                <h2>Round History</h2>
+                <ul class="history-list"></ul>
+              </div>
+            </div>
+            <button class="next-round-btn" disabled>Next Round</button>
+            <button class="new-tournament-btn">New Tournament</button>
+            <div class="winner-message">
+              <h2>Congratulations!</h2>
+              <p class="winner-name"></p>
+            </div>
+          </div>
+    
+    <script src="tournaments/tournaments.js"></script>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col">
+                    <h5>About Us</h5>
+                    <p>ChessConnect is an innovative online platform crafted to elevate the chess journey, bring together passionate chess players, streamline virtual competitions, oversee tournaments, and cultivate a thriving chess community.</p>
+                </div>
+                <!-- Contact Section -->
+                <div class="col">
+                    <h5>Contact Us</h5>
+                    <p>1234 Main Street, Boston, 56789</p>
+                    <p>info@chessconnect.com</p>
+                    <p>(123) 456-7890</p>
+                </div>
+                <!-- Social Media Section -->
+                <div class="col">
+                    <h5>Follow Us</h5>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Instagram</a><br>
+                    <a href="#">Discord</a>
+                </div>
+            </div>
+            <!-- Copyright Section -->
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <p>&copy; 2023 ChessConnect. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

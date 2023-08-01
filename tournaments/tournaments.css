@@ -1,0 +1,191 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.tournament {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tournament-info {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.roster, .brackets-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.roster h2, .brackets-container h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.roster-indicator {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.roster-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.roster-list li {
+  margin-bottom: 5px;
+}
+
+.add-participant-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.add-participant-form input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.add-participant-form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-participant-form button:hover {
+  background-color: #45a049;
+}
+
+.generate-brackets-btn, .next-round-btn, .new-tournament-btn {
+  background-color: #008CBA;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto;
+}
+
+.generate-brackets-btn:hover, .next-round-btn:hover, .new-tournament-btn:hover {
+  background-color: #007BAA;
+}
+
+.brackets-container {
+  display: grid;
+  gap: 20px;
+}
+
+.match {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.participant {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.vs {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.winner-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.winner-button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.winner-button.disabled {
+  background-color: #ccc;
+  pointer-events: none;
+}
+
+.winner-button:hover {
+  background-color: #45a049;
+}
+
+.round-history {
+  flex: 1;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.round-history h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-list li {
+  margin-bottom: 5px;
+}
+
+.winner-message {
+  display: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+.winner-name {
+  font-size: 36px;
+  font-weight: bold;
+}
