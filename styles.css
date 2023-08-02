@@ -235,3 +235,10 @@ footer .row::after {
     display: table;
     clear: both;
 }
+
+.images{
+    margin-left: 40px;
+    height: 290px;
+    width: 290px;
+    margin-right: 120px;
+}
