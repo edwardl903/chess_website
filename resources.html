@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="authors" content="Vishnusai Ramesh, Edward Lai, Thomas Lai">
+    <title>ChessConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ed7e0b9ede.js" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+    .main-content-text {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;      
+        }
+     .daily-puzzle-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .daily-puzzle-container h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .title-underline {
+            width: 50px;
+            height: 2px;
+            background-color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the chess puzzle */
+        #chessPuzzle {
+            max-width: 100%;
+            height: auto;
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #chessPuzzle img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        /* Styling for the credit link */
+        .credit-link {
+            font-size: 14px;
+            color: #888;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .credit-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .credit-link a:hover {
+            text-decoration: underline;
+        }
+</style>
+
+<body>
+    <!-- Top Nav -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><h1>ChessConnect<i class="fas fa-chess"></i>
+                </h1></a>
+            </div>
+            
+
+            <div class="links link-text">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a class="menu" onclick="openNav()">&#9776;</a>
+            </div>
+        </div>
+        <!-- mobile nav -->
+        <div id="mobileNav" class="overlay">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mobileNav").style.width = "100%";
+            }
+            function closeNav() {
+                document.getElementById("mobileNav").style.width = "0%";
+            }
+        </script>
+
+        <!-- Main Content -->
+    <div class="main-content">
+        <h2 class="title">
+            Welcome to ChessConnect Resources!</h2>
+        <div class="title-underline"></div>
+        <div class="main-content-text">
+        <p>
+            ChessConnect Resources is your ultimate destination to improve your chess skills, learn from expert openings, and solve challenging puzzles. Whether you're a beginner or an experienced player, we have something for everyone. Take your chess game to the next level with our curated collection of educational content and interactive puzzles.
+        </p>
+        <p>
+            Browse through our chess openings database, find the best moves, and study various strategies employed by top players. Sharpen your tactical abilities with our daily chess puzzles that are designed to challenge your mind and improve your board vision.
+        </p>
+        <p>
+            ChessConnect is committed to providing a thriving chess community where players can connect, learn, and grow together. Join us today and embark on an exciting chess journey!
+        </p>
+        </div>
+    </div>
+            <!-- Daily Puzzle Container -->
+    <div class="daily-puzzle-container">
+        <h2 class="title">Random Daily Puzzle</h2>
+        <div class="title-underline"></div>
+        <div id="chessPuzzle"></div>
+    </div>
+
+    <p class="credit-link">
+        Puzzles provided by
+        <a href="https://www.chess.com" target="_blank" rel="noopener">Chess.com</a>
+    </p>
+
+                    <!-- Script to fetch and display the random daily puzzle from the Chess.com API -->
+            <script>
+                async function fetchDailyPuzzle() {
+                    try {
+                        const response = await fetch('https://api.chess.com/pub/puzzle/random');
+                        const data = await response.json();
+
+                        const chessPuzzleContainer = document.getElementById('chessPuzzle');
+                        const puzzleImage = document.createElement('img');
+                        puzzleImage.src = data.image;
+                        puzzleImage.alt = 'Chess Puzzle';
+                        chessPuzzleContainer.appendChild(puzzleImage);
+                    } catch (error) {
+                        console.error('Error fetching daily puzzle:', error);
+                    }
+                }
+
+                fetchDailyPuzzle();
+            </script>
+            
+    </header>
+
+    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col">
+                    <h5>About Us</h5>
+                    <p>ChessConnect is an innovative online platform crafted to elevate the chess journey, bring together passionate chess players, streamline virtual competitions, oversee tournaments, and cultivate a thriving chess community.</p>
+                </div>
+                <!-- Contact Section -->
+                <div class="col">
+                    <h5>Contact Us</h5>
+                    <p>1234 Main Street, Boston, 56789</p>
+                    <p>info@chessconnect.com</p>
+                    <p>(123) 456-7890</p>
+                </div>
+                <!-- Social Media Section -->
+                <div class="col">
+                    <h5>Follow Us</h5>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Instagram</a><br>
+                    <a href="#">Discord</a>
+                </div>
+            </div>
+            <!-- Copyright Section -->
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <p>&copy; 2023 ChessConnect. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
