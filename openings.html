@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Openings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #openings-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .opening-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chess Openings</h1>
+    <div id="openings-container">
+        <!-- The fetched openings will be displayed here -->
+    </div>
+
+    <script>
+        const apiUrl = 'https://explorer.lichess.ovh/masters';
+
+        // Function to fetch and display chess openings
+        async function fetchOpenings() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                displayOpenings(data.openings);
+            } catch (error) {
+                console.error('Error fetching openings:', error);
+            }
+        }
+
+        // Function to display chess openings
+        function displayOpenings(openings) {
+            const openingsContainer = document.getElementById('openings-container');
+            openingsContainer.innerHTML = '';
+            openings.forEach(opening => {
+                const openingCard = document.createElement('div');
+                openingCard.className = 'opening-card';
+                openingCard.innerHTML = `
+                    <h3>${opening.name}</h3>
+                    <p>Move Count: ${opening.ply}</p>
+                    <p>Win Percentage: ${opening.white.win}%</p>
+                `;
+                openingsContainer.appendChild(openingCard);
+            });
+        }
+
+        // Call the fetchOpenings function to load openings on page load
+        fetchOpenings();
+    </script>
+</body>
+</html>
