@@ -69,18 +69,18 @@
 
             <div class="names">
                 <h3>Drop in your message, and we will get back to you!</h3>
-                <form action='#'> <!-- for now action=#, if needed can add a php file to it, and add to database-->
+                <form action='process.php' method="post"> 
                     <div class="forms">
-                    <label>Name:</label> <input type="text">
+                    <label>Name:</label> <input type="text" name="name">
                     </div>
 
                     <div class="forms">
-                    <label>E-mail:</label> <input type="email">
+                    <label>E-mail:</label> <input type="email" name="mail">
                     </div>
 
                     <div class="forms">
                     <label>Subject:</label> 
-                    <select>
+                    <select name="subject">
                         <option value="">Select a subject</option>
                         <option value="General Inquiry">General Inquiry</option>
                         <option value="Technical Issue">Technical Issue</option>
@@ -94,14 +94,16 @@
                     </div>
 
                     <div class="forms">
-                    <label>Message:</label> <input type="text">
+                        <div class="formfield">
+                            <label>Message:</label> <textarea name="message"> </textarea>
+                        </div>
                     </div>
 
                     <div class="forms">
                         <input type = "submit" value = "Submit">
                     </div>
                 </form>
-                </div>
+            </div>
         </div>
     </div>
 
