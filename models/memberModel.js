@@ -13,6 +13,9 @@ const memberSchema = new Schema({
     year: {
         type: String,
         required: true
+    }, 
+    rating: {
+        type: Number
     }
 })
 

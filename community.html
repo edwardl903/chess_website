@@ -18,6 +18,7 @@
             border-collapse: collapse;
             width: 70%;
             margin: 0 auto;
+            margin-bottom: 32px;
         }
 
         .table th, .table td {
@@ -30,6 +31,47 @@
             background-color: #1d1d1d;
             color: white;
         }
+
+        #addMemberForm {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        #addMemberForm h3 {
+            margin-bottom: 15px;
+        }
+
+        #addMemberForm label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #addMemberForm input[type="text"],
+        #addMemberForm input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #addMemberForm button {
+            padding: 10px 20px;
+            background-color: #1d1d1d;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #addMemberForm button[type="submit"] {
+            margin-right: 10px;
+        }
+
+
     </style>
 
 </head>
@@ -77,6 +119,23 @@
         <h2 class="title">Welcome to our Community Page</h2>
         <div class="title-underline"></div>
         <div id="table-container"></div>
+        <div id="addMemberForm">
+            <h3>Join Community</h3>
+            <form onsubmit="submitMemberForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" required>
+                <br>
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" required>
+                <br>
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" min="400" max="3000" required>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 
@@ -126,6 +185,7 @@
                             <th>Name</th>
                             <th>Role</th>
                             <th>Year</th>
+                            <th>Rating</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,6 +197,7 @@
                         <td>${member.name}</td>
                         <td>${member.role}</td>
                         <td>${member.year}</td>
+                        <td>${member.rating}</td>
                     </tr>
                 `;
             });
@@ -152,6 +213,46 @@
 }
 
     </script>
+    <script>    
+        async function submitMemberForm(event) {
+            event.preventDefault();
+    
+            const name = document.getElementById('name').value;
+            const role = document.getElementById('role').value;
+            const year = document.getElementById('year').value;
+            const rating = document.getElementById('rating').value;
+    
+            // Prepare the data to be sent to the server
+            const formData = {
+                name: name,
+                role: role,
+                year: year,
+                rating: parseInt(rating), // Convert rating to an integer
+            };
+    
+            try {
+                const response = await fetch('http://localhost:4000/api/members', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData),
+                });
+    
+                if (response.ok) {
+                    alert('Member added successfully!');
+                    window.location.href = window.location.href; // Reload screen
+                } else {
+                    alert('Failed to add member. Please try again later.');
+                }
+            } catch (error) {
+                alert('An error occurred while processing the request. Please try again later.');
+            }
+        }
+       
+    </script>
+    
+   
 
 </body>
 </html>

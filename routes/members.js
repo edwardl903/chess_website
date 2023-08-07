@@ -1,9 +1,15 @@
 const express = require('express')
 const router = express.Router()
 const {
-    getMembers
+    getMembers,
+    addMember
 } = require("../controllers/memberController")
 
-router.get('/', getMembers)
+// Get members
+router.get('/', getMembers);
+
+// Add a new member
+router.post('/', addMember);
+
 module.exports = router
 
