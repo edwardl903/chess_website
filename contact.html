@@ -50,7 +50,55 @@
     <div class="main-content">
         <h2 class="title">Welcome to our Contact Page</h2>
         <div class="title-underline"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu neque vel lacus finibus commodo. Curabitur eu nunc malesuada, semper ligula vitae, placerat ligula. Integer malesuada sagittis metus nec faucibus. Sed congue, turpis at laoreet malesuada, lorem lacus maximus sem, eu consequat justo tortor id felis. In eu massa augue. Vivamus ac malesuada nulla, in scelerisque urna. Curabitur blandit, tellus non sollicitudin malesuada, odio dolor aliquam ipsum, sit amet facilisis mi velit ut nisi. Ut vitae enim ligula.</p>
+        <div class="container">
+            <div class="names">
+                <h3>Coordinators</h3>
+                <ul>
+                    <li>Thomas Lai</li>
+                    <br>
+                    <li>Edward Lai</li>
+                    <br>
+                    <li>Vishnusai Ramesh</li>
+                    <br>
+                </ul>
+            </div>
+
+            <div class="names">
+                <h3>Drop in your message, and we will get back to you!</h3>
+                <form action='#'> <!-- for now action=#, if needed can add a php file to it, and add to database-->
+                    <div class="forms">
+                    <label>Name:</label> <input type="text">
+                    </div>
+
+                    <div class="forms">
+                    <label>E-mail:</label> <input type="email">
+                    </div>
+
+                    <div class="forms">
+                    <label>Subject:</label> 
+                    <select>
+                        <option value="">Select a subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Technical Issue">Technical Issue</option>
+                        <option value="Account Problem">Account Problem</option>
+                        <option value="Payment Inquiry">Payment Inquiry</option>
+                        <option value="Tournament Inquiry">Tournament Inquiry</option>
+                        <option value="Coaching Request">Coaching Request</option>
+                        <option value="Account Security Concern">Account Security Concern</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </div>
+
+                    <div class="forms">
+                    <label>Message:</label> <input type="text">
+                    </div>
+
+                    <div class="forms">
+                        <input type = "submit" value = "Submit">
+                    </div>
+                </form>
+                </div>
+        </div>
     </div>
 
     <!-- Footer -->
