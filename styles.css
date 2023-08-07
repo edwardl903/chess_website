@@ -242,3 +242,29 @@ footer .row::after {
     width: 290px;
     margin-right: 120px;
 }
+
+.container{
+    display: flex;
+}
+
+.names {
+    flex: 1;
+    border: 2px solid black; /* Add a black border to the names div */
+    padding: 20px; /* Add some padding to create space between content and border */
+}
+
+.names:first-child {
+    margin-left: 30px;
+    flex: 40; 
+}
+
+.names:last-child {
+    margin-right: 30px;
+    margin-left: 250px;
+    flex: 60;
+}
+
+.forms{
+    margin-bottom:20px;
+}
+
