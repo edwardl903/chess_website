@@ -11,6 +11,27 @@
 </head>
 
 <style>
+    h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        ol {
+            margin-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #007bff;
+        }
+
     .main-content-text {
             max-width: 600px;
             margin: 0 auto;
@@ -73,6 +94,68 @@
         .credit-link a:hover {
             text-decoration: underline;
         }
+
+        /* Styling for the Leaderboard*/
+        h1 {
+            text-align: center;
+        }
+
+        #buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #leaderboard-table {
+            width: 60%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        #leaderboard-table th,
+        #leaderboard-table td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        #leaderboard-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        #leaderboard-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+         /* Styling for the streamers stuff */
+        #streamers-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .streamer {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .streamer img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .streamer p {
+            font-weight: bold;
+        }
+
+        .streamer a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
 </style>
 
 <body>
@@ -116,15 +199,23 @@
             Welcome to ChessConnect Resources!</h2>
         <div class="title-underline"></div>
         <div class="main-content-text">
-        <p>
-            ChessConnect Resources is your ultimate destination to improve your chess skills, learn from expert openings, and solve challenging puzzles. Whether you're a beginner or an experienced player, we have something for everyone. Take your chess game to the next level with our curated collection of educational content and interactive puzzles.
-        </p>
-        <p>
-            Browse through our chess openings database, find the best moves, and study various strategies employed by top players. Sharpen your tactical abilities with our daily chess puzzles that are designed to challenge your mind and improve your board vision.
-        </p>
-        <p>
-            ChessConnect is committed to providing a thriving chess community where players can connect, learn, and grow together. Join us today and embark on an exciting chess journey!
-        </p>
+            <p>
+                ChessConnect Resources is your ultimate destination to immerse yourself in the world of chess with three fantastic features:
+            </p>
+            <ol>
+                <li>
+                    <strong>Chess.com Leaderboard:</strong> Stay updated with the latest rankings and performances of top players in the chess world. Explore the leaderboard to see who's leading the charts and making headlines with their brilliant moves. <a href="#leaderboard-table">View Leaderboard</a>
+                </li>
+                <li>
+                    <strong>Chess.com Daily Puzzle:</strong> Sharpen your tactical skills with our daily chess puzzles! Challenge your mind and improve your board vision by solving puzzles designed to elevate your gameplay. <a href="#chessPuzzle">View Daily Puzzle</a>
+                </li>
+                <li>
+                    <strong>Chess.com Streamers:</strong> Get inspired by the best chess streamers on Chess.com! Discover their usernames, avatars, and Twitch.tv URLs as they share their expertise and exciting chess matches. <a href="#streamers-container">View Streamers</a>
+                </li>
+            </ol>
+            <p>
+                Whether you're a beginner or an experienced player, ChessConnect has something special for everyone. Join us today and take your chess game to new heights with our curated educational content and interactive puzzles. Connect, learn, and grow together with our thriving chess community. Embark on an exciting chess journey today!
+            </p>
         </div>
     </div>
             <!-- Daily Puzzle Container -->
@@ -161,6 +252,120 @@
             
     </header>
 
+    <h1>Chess.com Leaderboards</h1>
+    <div id="buttons">
+        <button onclick="fetchAndDisplayLeaderboard('daily')">Daily</button>
+        <button onclick="fetchAndDisplayLeaderboard('live_rapid')">Rapid</button>
+        <button onclick="fetchAndDisplayLeaderboard('live_blitz')">Blitz</button>
+        <button onclick="fetchAndDisplayLeaderboard('live_bullet')">Bullet</button>
+        
+        
+    </div>
+    <table id="leaderboard-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody id="leaderboard-body">
+            <!-- The fetched leaderboard data will be displayed here -->
+        </tbody>
+    </table>
+
+    <script>
+        const apiUrl = 'https://api.chess.com/pub/leaderboards';
+
+        // Function to fetch and display the specified leaderboard
+        async function fetchAndDisplayLeaderboard(leaderboardType) {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                if (data && data[leaderboardType]) {
+                    displayLeaderboard(data[leaderboardType]);
+                } else {
+                    throw new Error('Invalid leaderboard type or data structure in the API response');
+                }
+            } catch (error) {
+                console.error('Error fetching leaderboard:', error);
+            }
+        }
+
+        // Function to display the leaderboard
+        function displayLeaderboard(players) {
+            const leaderboardBody = document.getElementById('leaderboard-body');
+            leaderboardBody.innerHTML = '';
+            players.slice(0, 50).forEach((player, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${player.username}</td>
+                    <td>${player.score}</td>
+                    <td>${player.country}</td>
+                `;
+                leaderboardBody.appendChild(row);
+            });
+        }
+
+        // Call the fetchAndDisplayLeaderboard function with the 'daily' leaderboard on page load
+        fetchAndDisplayLeaderboard('daily');
+    </script>
+
+    <h1>Streamers</h1>
+    <div id="streamers-container"></div>
+    <script>
+    const streamersContainer = document.getElementById('streamers-container');
+
+    function createStreamerElement(streamer) {
+        const streamerDiv = document.createElement('div');
+        streamerDiv.classList.add('streamer');
+
+        const avatarImg = document.createElement('img');
+        avatarImg.src = streamer.avatar;
+        streamerDiv.appendChild(avatarImg);
+
+        const usernameP = document.createElement('p');
+        usernameP.textContent = streamer.username;
+        streamerDiv.appendChild(usernameP);
+
+        const twitchLink = document.createElement('a');
+        twitchLink.href = streamer.twitch_url;
+        twitchLink.textContent = 'Twitch Channel';
+        streamerDiv.appendChild(twitchLink);
+
+        return streamerDiv;
+    }
+
+    function fetchStreamers() {
+        fetch('https://api.chess.com/pub/streamers')
+            .then(response => response.json())
+            .then(data => {
+                // Clear the previous content if any
+                streamersContainer.innerHTML = '';
+
+                // Get the top 50 streamers
+                const top50Streamers = data.streamers.slice(0, 50);
+
+                // Loop through the top 50 streamers and create HTML elements to display the information
+                top50Streamers.forEach(streamer => {
+                    const streamerElement = createStreamerElement(streamer);
+                    streamersContainer.appendChild(streamerElement);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching streamers:', error);
+            });
+    }
+
+    // Fetch the top 50 streamers initially and then refresh every 5 minutes
+    fetchStreamers();
+    setInterval(fetchStreamers, 5 * 60 * 1000); // 5 minutes in milliseconds
+</script>
     
 
     <!-- Footer -->
