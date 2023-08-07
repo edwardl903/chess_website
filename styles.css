@@ -268,3 +268,12 @@ footer .row::after {
     margin-bottom:20px;
 }
 
+.formfield {
+    display: flex;
+    align-items: center;
+}
+
+.formfield label{
+    margin-right: 4px;
+}
+
