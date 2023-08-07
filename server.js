@@ -19,13 +19,15 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.send('Hello, world!');
 });
+app.use(express.static(__dirname));
 
 app.use('/api/members', memberRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
 .then(() => {
-        app.listen(process.env.PORT, () => {
-                console.log('listening on port', process.env.PORT)
+        const port = process.env.PORT || 4000;
+        app.listen(port, () => {
+                console.log('listening on port', port)
         }) 
 }
 ).catch((error) => {console.log(error)})

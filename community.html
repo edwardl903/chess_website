@@ -176,7 +176,7 @@
     </footer>
     <script>
         window.onload = function() {
-    fetch('http://localhost:4000/api/members')
+    fetch('https://chessconnect-91e1519ef496.herokuapp.com/api/members')
         .then(response => response.json())
         .then(data => {
             const tableContainer = document.getElementById('table-container');
@@ -233,7 +233,7 @@
             };
     
             try {
-                const response = await fetch('http://localhost:4000/api/members', {
+                const response = await fetch('https://chessconnect-91e1519ef496.herokuapp.com/members', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
