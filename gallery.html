@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="authors" content="Vishnusai Ramesh, Edward Lai, Thomas Lai">
+    <title>ChessConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ed7e0b9ede.js" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+        /* CSS for the image grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+</style>
+
+<body>
+
+     <!-- Main Content -->
+     <div class="main-content">
+        <h2 class="title">
+            Welcome to ChessConnect Gallery</h2>
+        <div class="title-underline"></div>
+    </div>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"><h1>ChessConnect<i class="fas fa-chess"></i>
+                </h1></a>
+            </div>
+            
+
+            <div class="links link-text">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+                <a class="menu" onclick="openNav()">&#9776;</a>
+            </div>
+        </div>
+        <!-- mobile nav -->
+        <div id="mobileNav" class="overlay">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="resources.html">Resources</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mobileNav").style.width = "100%";
+            }
+            function closeNav() {
+                document.getElementById("mobileNav").style.width = "0%";
+            }
+        </script>
+    </header>
+
+    <div class="image-grid">
+        <img src="/chess_gallery/chess21.jpg" alt="Chess 21">
+        <img src="/chess_gallery/chess2.jpg" alt="Chess 2">
+        <img src="/chess_gallery/chess29.jpg" alt="Chess 29">
+        <img src="/chess_gallery/chess4.jpg" alt="Chess 4">
+        <img src="/chess_gallery/chess5.jpg" alt="Chess 5">
+        <img src="/chess_gallery/chess6.jpg" alt="Chess 6">
+        <img src="/chess_gallery/chess7.jpg" alt="Chess 7">
+        <img src="/chess_gallery/chess23.jpg" alt="Chess 23">
+        <img src="/chess_gallery/chess24.jpg" alt="Chess 24">
+        <img src="/chess_gallery/chess25.jpg" alt="Chess 25">
+        <img src="/chess_gallery/chess11.jpg" alt="Chess 11">
+        <img src="/chess_gallery/chess26.jpg" alt="Chess 26">
+        <img src="/chess_gallery/chess27.jpg" alt="Chess 27">
+        <img src="/chess_gallery/chess1.jpg" alt="Chess 1">
+        <img src="/chess_gallery/chess3.jpg" alt="Chess 3">
+        <img src="/chess_gallery/chess28.jpg" alt="Chess 28">
+        <img src="/chess_gallery/chess17.jpg" alt="Chess 17">
+        <img src="/chess_gallery/chess18.jpg" alt="Chess 18">
+        <img src="/chess_gallery/chess19.jpg" alt="Chess 19">
+        <img src="/chess_gallery/chess20.jpg" alt="Chess 20">
+        <img src="/chess_gallery/chess14.jpg" alt="Chess 14">
+        <img src="/chess_gallery/chess15.jpg" alt="Chess 15">
+        <img src="/chess_gallery/chess29.jpg" alt="Chess 29">
+        <img src="/chess_gallery/chess4.jpg" alt="Chess 4">
+        <img src="/chess_gallery/chess8.jpg" alt="Chess 8">
+        <img src="/chess_gallery/chess9.jpg" alt="Chess 9">
+        <img src="/chess_gallery/chess10.jpg" alt="Chess 10">
+        <img src="/chess_gallery/chess12.jpg" alt="Chess 12">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col">
+                    <h5>About Us</h5>
+                    <p>ChessConnect is an innovative online platform crafted to elevate the chess journey, bring together passionate chess players, streamline virtual competitions, oversee tournaments, and cultivate a thriving chess community.</p>
+                </div>
+                <!-- Contact Section -->
+                <div class="col">
+                    <h5>Contact Us</h5>
+                    <p>1234 Main Street, Boston, 56789</p>
+                    <p>info@chessconnect.com</p>
+                    <p>(123) 456-7890</p>
+                </div>
+                <!-- Social Media Section -->
+                <div class="col">
+                    <h5>Follow Us</h5>
+                    <a href="#">Facebook</a><br>
+                    <a href="#">Instagram</a><br>
+                    <a href="#">Discord</a>
+                </div>
+            </div>
+            <!-- Copyright Section -->
+            <div class="row">
+                <div class="col">
+                    <hr>
+                    <p>&copy; 2023 ChessConnect. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
