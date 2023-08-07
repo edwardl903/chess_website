@@ -281,38 +281,52 @@
         const apiUrl = 'https://api.chess.com/pub/leaderboards';
 
         // Function to fetch and display the specified leaderboard
-        async function fetchAndDisplayLeaderboard(leaderboardType) {
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                const data = await response.json();
-                if (data && data[leaderboardType]) {
-                    displayLeaderboard(data[leaderboardType]);
-                } else {
-                    throw new Error('Invalid leaderboard type or data structure in the API response');
-                }
-            } catch (error) {
-                console.error('Error fetching leaderboard:', error);
+    async function fetchAndDisplayLeaderboard(leaderboardType) {
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
             }
-        }
+            const data = await response.json();
+            if (data && data[leaderboardType]) {
+                // Fetch additional country name information for each player
+                const playersWithCountryNames = await fetchCountryNames(data[leaderboardType]);
 
-        // Function to display the leaderboard
-        function displayLeaderboard(players) {
-            const leaderboardBody = document.getElementById('leaderboard-body');
-            leaderboardBody.innerHTML = '';
-            players.slice(0, 50).forEach((player, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${player.username}</td>
-                    <td>${player.score}</td>
-                    <td>${player.country}</td>
-                `;
-                leaderboardBody.appendChild(row);
-            });
+                // Display the leaderboard with country names
+                displayLeaderboard(playersWithCountryNames);
+            } else {
+                throw new Error('Invalid leaderboard type or data structure in the API response');
+            }
+        } catch (error) {
+            console.error('Error fetching leaderboard:', error);
         }
+    }
+
+    // Function to fetch additional country name information for players
+    async function fetchCountryNames(players) {
+        const playerPromises = players.slice(0, 50).map(async player => {
+            const response = await fetch(player.country);
+            const countryData = await response.json();
+            return { ...player, country: countryData.name };
+        });
+        return Promise.all(playerPromises);
+    }
+
+    // Function to display the leaderboard
+    function displayLeaderboard(players) {
+        const leaderboardBody = document.getElementById('leaderboard-body');
+        leaderboardBody.innerHTML = '';
+        players.forEach((player, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${player.username}</td>
+                <td>${player.score}</td>
+                <td>${player.country}</td>
+            `;
+            leaderboardBody.appendChild(row);
+        });
+    }
 
         // Call the fetchAndDisplayLeaderboard function with the 'daily' leaderboard on page load
         fetchAndDisplayLeaderboard('daily');
